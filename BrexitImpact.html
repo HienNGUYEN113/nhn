@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['geochart']});
+            google.charts.setOnLoadCallback(drawRegionsMap1);
+
+            function drawRegionsMap1() {
+
+            var data = google.visualization.arrayToDataTable([
+              	['Country', 		'Import (%)',	'Export (%)'],
+              	['Austria',			1.34,			1.370],
+              	['Belgium',			9.42,			10.03],
+              	['Bulgaria',		0.26,			0.190],
+              	['Croatia',			0.11,			0.190],
+              	['Cyprus',			0.25,			0.060],
+              	['Czech Republic',	1.83,			2.380],
+              	['Denmark',			1.86,			1.690],
+              	['Estonia',			0.19,			0.100],
+              	['Finland',			0.96,			0.880],
+              	['France',			12.04, 			10.15],
+              	['Germany',			22.05,			28.19],
+              	['Greece',			0.69,			0.34],
+              	['Hungary',			0.86,			1.13],
+              	['Ireland',			11.86,			4.83],
+              	['Italy',			5.81,			7.10],
+              	['Latvia',			0.17,			0.17],
+              	['Lithuania',		0.41,			0.32],
+              	['Luxembourg',		0.13,			0.23],
+              	['Malta',			0.21,			0.05],
+              	['Netherlands',		12.76,			14.99],
+              	['Poland',			2.77,			3.82],
+              	['Portugal',		1.03,			1.06],
+              	['Romania',			0.86, 			0.75],
+              	['Slovakia',		0.57,			1.19],
+              	['Spain',			7.59,			5.91],
+              	['Slovenia',		0.19,			0.17],
+              	['Sweden',			3.76,			2.86]
+            ]);
+
+            var options = {
+	            region: '150',	// Europe
+	            // displayMode: 'regions',
+	            // resolution: 'provinces',
+	            colorAxis: {
+	                colors: ['#00853f', 'black', '#e31b23']
+	            },
+	  
+	            backgroundColor: '#81d4fa',
+	            datalessRegionColor: '#f8bbd0',
+	            defaultColor: '#f5f5f5',
+	        };
+            var chart1 = new google.visualization.GeoChart(document.getElementById('regions_div1'));
+
+            chart1.draw(data, options);
+            }
+        </script>
+
+        <script type="text/javascript">
+            //google.charts.load('current', {'packages':['geochart']});
+            google.charts.setOnLoadCallback(drawRegionsMap2);
+
+            function drawRegionsMap2() {
+
+            var data2 = google.visualization.arrayToDataTable([
+              	['Country', 		'Exports to U.K. as a % of GDP',	'Bidirectional migration as a % of population'],
+              	['Ireland',			10.6,			17.2],
+                ['Malta',			7.1,			7.5],
+                ['Luxembourg',		5.3,			0.0],
+              	['Cyprus',			7.5,			8.5],
+     			['Switzelands',		1.3, 			0.4],
+     			['Belgium',			6.8,			0.5],
+     			['Netherlands',		6.7,			0.4],
+     			['Spain',			2.7,			0.9],
+     			['Norway',			7.4,			0.4],
+     			['Sweden',			2.7,			0.2],
+     			['France',			2.0, 			0.5],
+     			['Germany',			2.8,			0.5],
+     			['Denmark',			2.7,			0.8],
+     			['Lithuania',		3.9,			5.1],
+     			['Latvia',			2.5,			4.9],
+     			['Canada',			0.8,			0.0],
+     			['Finland',			1.8,			0.3],
+     			['Hungary',			3.5,			0.2],
+     			['Italy',			1.6,			0.4],
+             	['Austria',			1.5,			0.4]              	
+            ]);
+
+            var options2 = {
+	            region: '150',	// Europe
+	            colorAxis: {
+	                colors: ['#f5f5f5','#267114']
+	            },
+	  
+	            backgroundColor: '#81d4fa',
+	            datalessRegionColor: '#f8bbd0',
+	            defaultColor: '#f5f5f5',
+	        };
+            var chart2 = new google.visualization.GeoChart(document.getElementById('regions_div2'));
+
+            chart2.draw(data2, options2);
+            }
+        </script>
+    </head>
+
+    <body>
+    	<h1>Trading relations between EU and UK</h1>
+    	<p>Two interest questions after Brexit: (1) which country has the most impact in trading with UK, and (2) which country has the most to lost?</p>
+    	<h3>Imports and exports between EU27 and UK in 2015 (all products)</h3>
+    	<p>A statistical analysis about imports and exports (all products) between EU27 and UK shows some interest facts. The total import values over 182 billion euro, while toal export values around 316 billion euro. Undoulbtedly that Germany has the most benefit in exports (28.19%) to UK. It approximates the sume of three countries: Netherlands, France, and Ireland. 
+    	</p>
+        <div id="regions_div1" style="width: 700px; height: 400px;"></div>
+        <p>Source: <a href="http://exporthelp.europa.eu/">European Commission</a> </p>
+
+        <h3>Brexit Sensitivity Index</h3>
+        <p>
+        	According to S&P Global ratings, Ireland, Malta, Luxembourg, and Cyprus are the most vulnerable countries to any changed tratergies of the Brexit. The survey was conducted of 20 countries most exposed to the risk. The geomap shows measures goods and services exports to the UK, and bidirectional migrant flows. In this list, Canada (the only country that is not in the Eurozone), is the most exposed to the Brexit aftermath.     
+        </p>
+        <div id="regions_div2" style="width: 700px; height: 400px;"></div>
+        <p>Source: <a href="www.standardandpoors.com/ratingsdirect">S&P Global</a> </p>
+    </body>
+</html>
